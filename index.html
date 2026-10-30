@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal Redaksi Berita Online | IndoBERT AI Newsroom</title>
+
+    <!-- Google Fonts: Playfair Display (Tajuk Koran), Plus Jakarta Sans & Poppins (Editorial UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ================= TOPBAR EDISI SURAT KABAR ================= -->
+    <aside class="topbar-edisi" aria-label="Informasi Edisi Berita">
+      <div class="container topbar-container">
+        <div class="topbar-left">
+          <span class="topbar-date" id="current-date">Rabu, 16 September 2026 | Edisi Digital</span>
+          <span class="topbar-sep">&bull;</span>
+          <span class="topbar-edition">Edisi Digital No. 24 / Vol. IV</span>
+          <span class="topbar-sep">&bull;</span>
+          <span class="topbar-loc"><i class="fa-solid fa-location-dot"></i> Medan, Indonesia</span>
+        </div>
+        <div class="topbar-right">
+          <span class="ai-status">
+            <span class="status-pulse" aria-hidden="true"></span>
+            <span class="status-text">Sistem IndoBERT: <strong>Aktif & Siap</strong></span>
+          </span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ================= MASTHEAD KORAN DIGITAL ================= -->
+    <header class="masthead">
+      <div class="container masthead-container">
+        <div class="masthead-topline">
+          <span class="tagline">SISTEM INTELIJEN KLASIFIKASI NASKAH JURNALISTIK BERBASIS DEEP LEARNING</span>
+        </div>
+        <div class="masthead-main">
+          <div class="masthead-brand">
+            <h1 class="newspaper-title">PORTAL REDAKSI BERITA ONLINE</h1>
+            <p class="newspaper-subtitle">INDOBERT AI NEWSROOM &bull; ARSITEKTUR TRANSFORMER PRE-TRAINED</p>
+          </div>
+        </div>
+        <div class="masthead-rule"></div>
+      </div>
+    </header>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar" id="site-navbar" aria-label="Navigasi Utama">
+      <div class="container nav-container">
+        <a href="#beranda" class="logo" aria-label="Beranda Portal Redaksi">
+          <div class="logo-icon">
+            <img src="LOGO.jpeg" alt="Logo Redaksi Berita" width="45" height="45" />
+          </div>
+          <div class="logo-text">
+            <span class="logo-title">IndoBERT Newsroom</span>
+            <span class="logo-badge">Medan Pos Partner</span>
+          </div>
+        </a>
+
+        <ul class="menu" id="primary-menu">
+          <li><a href="#beranda" class="menu-link active">Beranda</a></li>
+          <li><a href="#redaksi" class="menu-link">Redaksi & Prediksi</a></li>
+          <li><a href="#performa" class="menu-link">Performa Model</a></li>
+          <li><a href="#arsitektur" class="menu-link">Arsitektur IndoBERT</a></li>
+          <li><a href="#dataset" class="menu-link">Dataset</a></li>
+          <li><a href="#mitra" class="menu-link">Mitra Media</a></li>
+        </ul>
+
+        <div class="nav-cta">
+          <a href="#redaksi" class="btn-nav">
+            <i class="fa-solid fa-feather-pointed" aria-hidden="true"></i>
+            <span>Uji Naskah</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main>
+      <!-- ================= HERO SECTION ================= -->
+      <section class="beranda" id="beranda" aria-labelledby="hero-title">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <div class="badge-headline">
+              <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+              <span>Teknologi NLP Indonesia Terkini</span>
+            </div>
+
+            <h2 id="hero-title" class="hero-headline">
+              Klasifikasi Otomatis Berita Online
+              <span class="highlight">dengan IndoBERT Base</span>
+            </h2>
+
+            <p class="hero-description">
+              Platform intelijen ruang redaksi bertenaga model bahasa IndoBERT berbasis Transformer. Dirancang khusus untuk
+              mengelompokkan naskah berita nasional ke dalam lima kategori esensial secara objektif, berakurasi tinggi, dan
+              mempertahankan koherensi konteks semantik judul serta naskah artikel.
+            </p>
+
+            <div class="hero-kpi-row">
+              <div class="kpi-mini">
+                <div class="kpi-mini-num">92.00%</div>
+                <div class="kpi-mini-lbl">Akurasi Uji</div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-num">91.68%</div>
+                <div class="kpi-mini-lbl">Macro Recall</div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-num">512</div>
+                <div class="kpi-mini-lbl">Maks. Token</div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-num">5</div>
+                <div class="kpi-mini-lbl">Kategori Berita</div>
+              </div>
+            </div>
+
+            <div class="button-group">
+              <a href="#redaksi" class="btn-primary">
+                <i class="fa-solid fa-keyboard" aria-hidden="true"></i> Buka Meja Redaksi
+              </a>
+              <a href="#performa" class="btn-secondary">
+                <i class="fa-solid fa-chart-pie" aria-hidden="true"></i> Lihat Bukti Riset
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-image-col">
+            <figure class="hero-figure">
+              <div class="newspaper-frame">
+                <img src="FotoKoran.png" alt="Ilustrasi Redaksi Berita Surat Kabar Nasional" />
+                <figcaption class="hero-caption">
+                  <span class="caption-tag">DOKUMENTASI RISET</span>
+                  Pemrosesan teks digital berita daring berbahasa Indonesia menggunakan IndoBERT Pre-trained Model.
+                </figcaption>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= NEWSROOM EDITORIAL DESK (PREDIKSI) ================= -->
+      <section class="redaksi" id="redaksi" aria-labelledby="newsroom-heading">
+        <div class="container">
+          <header class="section-title">
+            <div class="section-badge">INTERACTIVE EDITORIAL DESK</div>
+            <h2 id="newsroom-heading">Meja Redaksi & Deteksi Berita</h2>
+            <p>
+              Uji coba inferensi langsung model IndoBERT terhadap naskah berita daring. Tuliskan judul dan isi naskah, atau klik
+              salah satu contoh preset berita untuk simulasi instan 1-klik.
+            </p>
+          </header>
+
+          <!-- 1-Click Sample Presets -->
+          <div class="preset-section" aria-label="Preset Naskah Berita">
+            <div class="preset-label">
+              <i class="fa-solid fa-bolt-lightning" aria-hidden="true"></i>
+              <span>Pilih Naskah Uji Cepat (1-Click Sample Preset — 5 Contoh per Kategori):</span>
+            </div>
+            <div class="preset-group" role="group" aria-label="Kategori Preset Naskah">
+              <button type="button" class="btn-preset btn-preset-politik" data-category="politik" data-preset="politik">
+                <i class="fa-solid fa-landmark" aria-hidden="true"></i>
+                <span>Politik</span>
+              </button>
+              <button type="button" class="btn-preset btn-preset-ekonomi" data-category="ekonomi" data-preset="ekonomi">
+                <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                <span>Ekonomi</span>
+              </button>
+              <button type="button" class="btn-preset btn-preset-hukum" data-category="hukum" data-preset="hukum">
+                <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+                <span>Hukum</span>
+              </button>
+              <button type="button" class="btn-preset btn-preset-olahraga" data-category="olahraga" data-preset="olahraga">
+                <i class="fa-solid fa-futbol" aria-hidden="true"></i>
+                <span>Olahraga</span>
+              </button>
+              <button type="button" class="btn-preset btn-preset-pendidikan" data-category="pendidikan" data-preset="pendidikan">
+                <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                <span>Pendidikan</span>
+              </button>
+            </div>
+            <div class="preset-subgroup" id="preset-subgroup" aria-label="5 Variasi Sampel Berita" style="display: none;">
+              <div class="preset-subgroup-header">
+                <span id="preset-subgroup-title"><i class="fa-regular fa-newspaper"></i> Pilih Variasi Naskah:</span>
+                <span style="font-size: 0.72rem; color: var(--ink-muted); text-transform: none; font-weight: normal;">Klik tombol untuk langsung memuat ke lembar editor</span>
+              </div>
+              <div class="preset-subgroup-items" id="preset-subgroup-items">
+                <!-- Di-render dinamis oleh JavaScript -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Newsroom Workspace Grid -->
+          <div class="newsroom-grid">
+            <!-- Form Input Redaksi -->
+            <div class="editor-panel">
+              <div class="panel-header">
+                <div class="panel-title">
+                  <i class="fa-regular fa-newspaper" aria-hidden="true"></i>
+                  <span>Lembar Naskah Redaksi</span>
+                </div>
+                <div class="panel-tools">
+                  <button type="button" id="btn-copy" class="btn-tool" title="Salin Naskah ke Clipboard">
+                    <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                    <span>Salin Naskah</span>
+                  </button>
+                  <button type="button" id="btn-reset" class="btn-tool" title="Bersihkan Formulir">
+                    <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+                    <span>Bersihkan Form</span>
+                  </button>
+                </div>
+              </div>
+
+              <form id="form-klasifikasi" class="editor-form" onsubmit="return false;">
+                <!-- Input Judul -->
+                <div class="form-group">
+                  <label for="input-judul" class="form-label">
+                    Judul Berita <span class="label-hint">(Opsional, meningkatkan akurasi pair encoding)</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="input-judul"
+                    name="judul"
+                    class="form-control"
+                    placeholder="Contoh: IHSG Menguat Ditopang Saham Perbankan dan Manufaktur"
+                    autocomplete="off"
+                  />
+                </div>
+
+                <!-- Input Isi Naskah -->
+                <div class="form-group">
+                  <div class="form-label-row">
+                    <label for="input-isi" class="form-label">
+                      Isi Naskah Berita <span class="label-required">*</span>
+                    </label>
+                    <div class="live-counter" aria-live="polite">
+                      <span class="counter-item"><strong id="word-count">0</strong> Kata</span>
+                      <span class="counter-sep">|</span>
+                      <span class="counter-item"><strong id="char-count">0</strong> Karakter</span>
+                    </div>
+                  </div>
+                  <textarea
+                    id="input-isi"
+                    name="isi"
+                    class="form-control editor-textarea"
+                    placeholder="Tuliskan atau tempelkan (paste) naskah lengkap artikel berita daring di sini..."
+                    rows="9"
+                    required
+                  ></textarea>
+                  <div id="input-feedback" class="input-feedback" style="display: none;" role="alert"></div>
+                </div>
+
+                <!-- Action Button -->
+                <div class="form-actions">
+                  <button type="button" id="btn-klasifikasi" class="btn-classify">
+                    <span class="btn-spinner" aria-hidden="true" style="display: none;">
+                      <i class="fa-solid fa-circle-notch fa-spin"></i>
+                    </span>
+                    <span class="btn-icon">
+                      <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+                    </span>
+                    <span class="btn-text">Klasifikasikan Berita</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Result Card Container -->
+            <div class="result-panel">
+              <!-- Default Placeholder State -->
+              <div id="result-placeholder" class="result-placeholder">
+                <div class="placeholder-icon">
+                  <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
+                </div>
+                <h3>Menunggu Naskah Berita</h3>
+                <p>
+                  Masukkan naskah berita di panel sebelah kiri atau gunakan tombol preset 1-klik di atas, lalu klik
+                  <strong>Klasifikasikan Berita</strong> untuk menampilkan hasil inferensi IndoBERT.
+                </p>
+              </div>
+
+              <!-- Real Result Container (Hidden Initially) -->
+              <div id="result-container" class="result-card" style="display: none;">
+                <div class="result-card-header">
+                  <div class="result-headline-group">
+                    <span class="result-label-kicker">KATEGORI PREDIKSI UTAMA</span>
+                    <div class="result-badge-wrap">
+                      <span id="result-category" class="result-badge">-</span>
+                    </div>
+                  </div>
+                  <div class="result-confidence-box">
+                    <span class="conf-title">Confidence Score</span>
+                    <span id="result-confidence" class="conf-value">0.00%</span>
+                  </div>
+                </div>
+
+                <!-- Confidence Meter Bar -->
+                <div class="confidence-meter">
+                  <div class="meter-bar-track">
+                    <div id="confidence-meter-bar" class="meter-bar-fill" style="width: 0%;"></div>
+                  </div>
+                </div>
+
+                <!-- 5-Category Probabilities -->
+                <div class="probabilities-section">
+                  <div class="prob-header">
+                    <span class="prob-title">Distribusi Probabilitas (Softmax Logits)</span>
+                    <span class="prob-note">5 Kelas Terdistribusi</span>
+                  </div>
+
+                  <div class="prob-list">
+                    <!-- Politik -->
+                    <div class="prob-row" data-cat="Politik">
+                      <div class="prob-label">
+                        <i class="fa-solid fa-landmark cat-icon-politik" aria-hidden="true"></i>
+                        <span>Politik</span>
+                      </div>
+                      <div class="prob-bar-track">
+                        <div id="bar-politik" class="prob-bar-fill bar-cat-politik" style="width: 0%;"></div>
+                      </div>
+                      <div class="prob-value" id="prob-politik">0.00%</div>
+                    </div>
+
+                    <!-- Ekonomi -->
+                    <div class="prob-row" data-cat="Ekonomi">
+                      <div class="prob-label">
+                        <i class="fa-solid fa-chart-line cat-icon-ekonomi" aria-hidden="true"></i>
+                        <span>Ekonomi</span>
+                      </div>
+                      <div class="prob-bar-track">
+                        <div id="bar-ekonomi" class="prob-bar-fill bar-cat-ekonomi" style="width: 0%;"></div>
+                      </div>
+                      <div class="prob-value" id="prob-ekonomi">0.00%</div>
+                    </div>
+
+                    <!-- Hukum -->
+                    <div class="prob-row" data-cat="Hukum">
+                      <div class="prob-label">
+                        <i class="fa-solid fa-scale-balanced cat-icon-hukum" aria-hidden="true"></i>
+                        <span>Hukum</span>
+                      </div>
+                      <div class="prob-bar-track">
+                        <div id="bar-hukum" class="prob-bar-fill bar-cat-hukum" style="width: 0%;"></div>
+                      </div>
+                      <div class="prob-value" id="prob-hukum">0.00%</div>
+                    </div>
+
+                    <!-- Olahraga -->
+                    <div class="prob-row" data-cat="Olahraga">
+                      <div class="prob-label">
+                        <i class="fa-solid fa-futbol cat-icon-olahraga" aria-hidden="true"></i>
+                        <span>Olahraga</span>
+                      </div>
+                      <div class="prob-bar-track">
+                        <div id="bar-olahraga" class="prob-bar-fill bar-cat-olahraga" style="width: 0%;"></div>
+                      </div>
+                      <div class="prob-value" id="prob-olahraga">0.00%</div>
+                    </div>
+
+                    <!-- Pendidikan -->
+                    <div class="prob-row" data-cat="Pendidikan">
+                      <div class="prob-label">
+                        <i class="fa-solid fa-graduation-cap cat-icon-pendidikan" aria-hidden="true"></i>
+                        <span>Pendidikan</span>
+                      </div>
+                      <div class="prob-bar-track">
+                        <div id="bar-pendidikan" class="prob-bar-fill bar-cat-pendidikan" style="width: 0%;"></div>
+                      </div>
+                      <div class="prob-value" id="prob-pendidikan">0.00%</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Inference Metadata Inspector -->
+                <div class="meta-inspector">
+                  <div class="meta-inspector-title">
+                    <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+                    <span>Parameter Inferensi & Transparansi Model</span>
+                  </div>
+                  <div class="meta-grid">
+                    <div class="meta-item">
+                      <span class="meta-key">Panjang Token:</span>
+                      <span class="meta-val"><strong id="meta-token-count">-</strong> / 512</span>
+                    </div>
+                    <div class="meta-item">
+                      <span class="meta-key">Mode Input:</span>
+                      <span class="meta-val" id="meta-input-mode">-</span>
+                    </div>
+                    <div class="meta-item">
+                      <span class="meta-key">Komputasi Device:</span>
+                      <span class="meta-val" id="meta-device">-</span>
+                    </div>
+                    <div class="meta-item">
+                      <span class="meta-key">Latensi Inferensi:</span>
+                      <span class="meta-val" id="meta-latency">-</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PERFORMANCE DASHBOARD ================= -->
+      <section class="performa" id="performa" aria-labelledby="performa-heading">
+        <div class="container">
+          <header class="section-title">
+            <div class="section-badge">EVALUASI & BENCHMARK MODEL</div>
+            <h2 id="performa-heading">Dashboard Evaluasi & Metrik Akurasi</h2>
+            <p>
+              Hasil evaluasi kuantitatif arsitektur IndoBERT Pre-trained pada data uji terkunci (Locked Test Set N=50) dan
+              pengujian validasi silang (5-Fold Cross Validation).
+            </p>
+          </header>
+
+          <!-- 4 Primary KPI Highlight Cards -->
+          <div class="kpi-grid">
+            <div class="kpi-card highlight-accuracy">
+              <div class="kpi-header">
+                <span class="kpi-label">Akurasi Keseluruhan</span>
+                <i class="fa-solid fa-bullseye kpi-icon" aria-hidden="true"></i>
+              </div>
+              <div class="kpi-number">92.00%</div>
+              <div class="kpi-subtext">46 dari 50 artikel uji terprediksi tepat</div>
+              <div class="kpi-progress">
+                <div class="kpi-bar" style="width: 92%;"></div>
+              </div>
+            </div>
+
+            <div class="kpi-card highlight-recall">
+              <div class="kpi-header">
+                <span class="kpi-label">Recall Macro</span>
+                <i class="fa-solid fa-rotate kpi-icon" aria-hidden="true"></i>
+              </div>
+              <div class="kpi-number">91.68%</div>
+              <div class="kpi-subtext">Weighted Recall: <strong>92.00%</strong></div>
+              <div class="kpi-progress">
+                <div class="kpi-bar" style="width: 91.68%;"></div>
+              </div>
+            </div>
+
+            <div class="kpi-card highlight-precision">
+              <div class="kpi-header">
+                <span class="kpi-label">Precision Macro</span>
+                <i class="fa-solid fa-filter-circle-dollar kpi-icon" aria-hidden="true"></i>
+              </div>
+              <div class="kpi-number">91.56%</div>
+              <div class="kpi-subtext">Weighted Precision: <strong>92.44%</strong></div>
+              <div class="kpi-progress">
+                <div class="kpi-bar" style="width: 91.56%;"></div>
+              </div>
+            </div>
+
+            <div class="kpi-card highlight-f1">
+              <div class="kpi-header">
+                <span class="kpi-label">F1-Score Macro</span>
+                <i class="fa-solid fa-award kpi-icon" aria-hidden="true"></i>
+              </div>
+              <div class="kpi-number">91.52%</div>
+              <div class="kpi-subtext">Weighted F1: <strong>92.13%</strong></div>
+              <div class="kpi-progress">
+                <div class="kpi-bar" style="width: 91.52%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Switcher (Locked Test Set vs 5-Fold CV) -->
+          <div class="metrics-tab-wrapper">
+            <div class="metrics-tab-nav" role="tablist" aria-label="Pilihan Evaluasi Model">
+              <button
+                type="button"
+                class="tab-btn active"
+                id="tab-btn-testset"
+                role="tab"
+                aria-selected="true"
+                aria-controls="tab-pane-testset"
+                data-tab="tab-pane-testset"
+                data-target="tab-pane-testset"
+              >
+                <i class="fa-solid fa-table-list" aria-hidden="true"></i>
+                <span>Locked Test Set (50 Berita)</span>
+              </button>
+              <button
+                type="button"
+                class="tab-btn"
+                id="tab-btn-cv"
+                role="tab"
+                aria-selected="false"
+                aria-controls="tab-pane-cv"
+                data-tab="tab-pane-cv"
+                data-target="tab-pane-cv"
+              >
+                <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                <span>5-Fold Cross Validation (Fold 4 Terbaik)</span>
+              </button>
+            </div>
+
+            <!-- TAB PANE 1: LOCKED TEST SET TABLE -->
+            <div class="tab-pane active" id="tab-pane-testset" role="tabpanel" aria-labelledby="tab-btn-testset">
+              <div class="table-card">
+                <div class="table-card-header">
+                  <div>
+                    <h3 class="table-title">Tabel Evaluasi Ilmiah Per Kategori (Locked Test Set)</h3>
+                    <p class="table-caption">
+                      Pengujian independen pada 50 naskah berita acak yang belum pernah dilihat selama proses pelatihan.
+                    </p>
+                  </div>
+                  <div class="table-chip">N = 50 Berita Uji</div>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="scientific-table">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="th-cat">Kategori Berita</th>
+                        <th scope="col" class="th-num">Jumlah Data (Support)</th>
+                        <th scope="col" class="th-num">Recall</th>
+                        <th scope="col" class="th-num">Precision</th>
+                        <th scope="col" class="th-num">F1-Score</th>
+                        <th scope="col" class="th-status">Keterangan Performa</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="td-cat">
+                          <i class="fa-solid fa-chart-line cat-icon-ekonomi" aria-hidden="true"></i>
+                          <strong>Ekonomi</strong>
+                        </td>
+                        <td class="td-num">8</td>
+                        <td class="td-num">87.50%</td>
+                        <td class="td-num">77.78%</td>
+                        <td class="td-num">82.35%</td>
+                        <td class="td-status"><span class="badge-status badge-good">Sangat Baik</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-cat">
+                          <i class="fa-solid fa-scale-balanced cat-icon-hukum" aria-hidden="true"></i>
+                          <strong>Hukum</strong>
+                        </td>
+                        <td class="td-num">10</td>
+                        <td class="td-num">90.00%</td>
+                        <td class="td-num">90.00%</td>
+                        <td class="td-num">90.00%</td>
+                        <td class="td-status"><span class="badge-status badge-excellent">Unggul</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-cat">
+                          <i class="fa-solid fa-futbol cat-icon-olahraga" aria-hidden="true"></i>
+                          <strong>Olahraga</strong>
+                        </td>
+                        <td class="td-num">10</td>
+                        <td class="td-num">90.00%</td>
+                        <td class="td-num">90.00%</td>
+                        <td class="td-num">90.00%</td>
+                        <td class="td-status"><span class="badge-status badge-excellent">Unggul</span></td>
+                      </tr>
+                      <tr class="row-highlight">
+                        <td class="td-cat">
+                          <i class="fa-solid fa-graduation-cap cat-icon-pendidikan" aria-hidden="true"></i>
+                          <strong>Pendidikan</strong>
+                        </td>
+                        <td class="td-num">11</td>
+                        <td class="td-num text-highlight">100.00%</td>
+                        <td class="td-num text-highlight">100.00%</td>
+                        <td class="td-num text-highlight">100.00%</td>
+                        <td class="td-status"><span class="badge-status badge-perfect">Sempurna (100%)</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-cat">
+                          <i class="fa-solid fa-landmark cat-icon-politik" aria-hidden="true"></i>
+                          <strong>Politik</strong>
+                        </td>
+                        <td class="td-num">11</td>
+                        <td class="td-num">90.91%</td>
+                        <td class="td-num text-highlight">100.00%</td>
+                        <td class="td-num">95.24%</td>
+                        <td class="td-status"><span class="badge-status badge-excellent">Unggul</span></td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr class="tfoot-macro">
+                        <th scope="row">Macro Average</th>
+                        <td class="td-num">50</td>
+                        <td class="td-num"><strong>91.68%</strong></td>
+                        <td class="td-num"><strong>91.56%</strong></td>
+                        <td class="td-num"><strong>91.52%</strong></td>
+                        <td class="td-status">Rata-rata tidak berbobot</td>
+                      </tr>
+                      <tr class="tfoot-weighted">
+                        <th scope="row">Weighted Average</th>
+                        <td class="td-num">50</td>
+                        <td class="td-num"><strong>92.00%</strong></td>
+                        <td class="td-num"><strong>92.44%</strong></td>
+                        <td class="td-num"><strong>92.13%</strong></td>
+                        <td class="td-status">Rata-rata berbobot populasi</td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE 2: 5-FOLD CROSS VALIDATION -->
+            <div class="tab-pane" id="tab-pane-cv" role="tabpanel" aria-labelledby="tab-btn-cv" style="display: none;">
+              <div class="cv-card">
+                <div class="cv-header">
+                  <div>
+                    <h3 class="cv-title">Hasil Pelatihan 5-Fold Cross Validation</h3>
+                    <p class="cv-caption">
+                      Model terbaik tersimpan pada <strong>Fold 4</strong> setelah 5 putaran validasi silang berulang dengan
+                      stratifikasi proporsi label seimbang.
+                    </p>
+                  </div>
+                  <span class="badge-best-fold"><i class="fa-solid fa-crown" aria-hidden="true"></i> Best Model: Fold 4</span>
+                </div>
+
+                <div class="cv-metrics-grid">
+                  <div class="cv-metric-box">
+                    <span class="cv-metric-lbl">Validation Accuracy</span>
+                    <strong class="cv-metric-val">93.18%</strong>
+                    <span class="cv-metric-note">Akurasi validasi tertinggi</span>
+                  </div>
+                  <div class="cv-metric-box">
+                    <span class="cv-metric-lbl">Val Macro-Recall</span>
+                    <strong class="cv-metric-val">93.20%</strong>
+                    <span class="cv-metric-note">Daya tangkap per kelas merata</span>
+                  </div>
+                  <div class="cv-metric-box">
+                    <span class="cv-metric-lbl">Val Macro-Precision</span>
+                    <strong class="cv-metric-val">93.54%</strong>
+                    <span class="cv-metric-note">Presisi prediksi kelas</span>
+                  </div>
+                  <div class="cv-metric-box">
+                    <span class="cv-metric-lbl">Val Macro-F1</span>
+                    <strong class="cv-metric-val">93.29%</strong>
+                    <span class="cv-metric-note">Harmonic mean seimbang</span>
+                  </div>
+                  <div class="cv-metric-box highlight-loss">
+                    <span class="cv-metric-lbl">Validation Loss</span>
+                    <strong class="cv-metric-val loss-val">0.2070</strong>
+                    <span class="cv-metric-note">Cross-entropy minimum konvergen</span>
+                  </div>
+                </div>
+
+                <div class="cv-summary-callout">
+                  <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                  <p>
+                    Checkpoint model IndoBERT pada Fold 4 ini yang diekspor dan digunakan secara langsung pada web service
+                    inferensi ini karena memiliki kestabilan loss (0.2070) dan generalisasi metrik F1-score di atas 93%.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ARSITEKTUR & ALUR KERJA ================= -->
+      <section class="arsitektur" id="arsitektur" aria-labelledby="arsitektur-heading">
+        <div class="container">
+          <header class="section-title">
+            <div class="section-badge">PIPELINE TEKNIS DEEP LEARNING</div>
+            <h2 id="arsitektur-heading">Arsitektur Model & Alur Kerja IndoBERT</h2>
+            <p>
+              Transformasi teks naskah berita mentah dari meja redaksi menjadi inferensi multi-kelas menggunakan tahapan
+              pembersihan regex, tokenisasi pair encoding, dan Transformer sequence classifier.
+            </p>
+          </header>
+
+          <div class="pipeline-timeline">
+            <!-- STEP 1 -->
+            <div class="pipeline-card">
+              <div class="pipeline-num">01</div>
+              <div class="pipeline-icon">
+                <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+              </div>
+              <div class="pipeline-body">
+                <h3>Input Title-Content Pair</h3>
+                <p>
+                  Sistem menerima pasangan judul berita dan isi naskah. Judul memberikan sinyal semantik utama yang dipasangkan
+                  dengan isi artikel dalam skema <code>[CLS] Judul [SEP] Isi [SEP]</code>. Jika judul tidak diisi, mode bertransisi
+                  secara otomatis ke <code>content_only</code>.
+                </p>
+              </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="pipeline-card">
+              <div class="pipeline-num">02</div>
+              <div class="pipeline-icon">
+                <i class="fa-solid fa-filter" aria-hidden="true"></i>
+              </div>
+              <div class="pipeline-body">
+                <h3>NFKC Normalization & Regex Cleaner</h3>
+                <p>
+                  Naskah dibersihkan dari artefak portal berita online: frasa boilerplate (<em>"Baca Juga: ..."</em>,
+                  <em>"Editor : ..."</em>), tautan URL (<em>http/https</em>), karakter non-standar melalui Unicode NFKC
+                  normalization, dan normalisasi spasi redundan.
+                </p>
+              </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="pipeline-card">
+              <div class="pipeline-num">03</div>
+              <div class="pipeline-icon">
+                <i class="fa-solid fa-font" aria-hidden="true"></i>
+              </div>
+              <div class="pipeline-body">
+                <h3>WordPiece Tokenizer (Maks. 512 Token)</h3>
+                <p>
+                  Teks dipecah menjadi sub-kata token menggunakan vocab khusus bahasa Indonesia dari
+                  <code>indobenchmark/indobert-base-p1</code> dengan batasan <code>max_length=512</code>, padding, dan attention
+                  mask untuk komputasi tensor terarah.
+                </p>
+              </div>
+            </div>
+
+            <!-- STEP 4 -->
+            <div class="pipeline-card">
+              <div class="pipeline-num">04</div>
+              <div class="pipeline-icon">
+                <i class="fa-solid fa-brain" aria-hidden="true"></i>
+              </div>
+              <div class="pipeline-body">
+                <h3>Transformer Encoder (12 Lapisan Bidirectional)</h3>
+                <p>
+                  124 juta parameter representasi kontekstual diproses melalui 12 layer multi-head self-attention. Mekanisme
+                  bidirectional memungkinkan model memahami relasi sintaksis dan konteks kata dari kiri ke kanan serta sebaliknya.
+                </p>
+              </div>
+            </div>
+
+            <!-- STEP 5 -->
+            <div class="pipeline-card">
+              <div class="pipeline-num">05</div>
+              <div class="pipeline-icon">
+                <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+              </div>
+              <div class="pipeline-body">
+                <h3>Sequence Classification Head</h3>
+                <p>
+                  Vektor embedding representasi token <code>[CLS]</code> dilewatkan ke dropout layer dan linear classifier untuk
+                  menghasilkan 5 nilai logit unnormalized yang merepresentasikan kelas Politik, Ekonomi, Hukum, Olahraga, dan
+                  Pendidikan.
+                </p>
+              </div>
+            </div>
+
+            <!-- STEP 6 -->
+            <div class="pipeline-card">
+              <div class="pipeline-num">06</div>
+              <div class="pipeline-icon">
+                <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+              </div>
+              <div class="pipeline-body">
+                <h3>Softmax Normalization & Hasil Prediksi</h3>
+                <p>
+                  Fungsi aktivasi Softmax mengonversi logit menjadi distribusi probabilitas 0-100%. Label dengan probabilitas
+                  tertinggi ditetapkan sebagai kategori prediksi utama disertai confidence score dan visualisasi perbandingan kelas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= DATASET ================= -->
+      <section class="dataset" id="dataset" aria-labelledby="dataset-heading">
+        <div class="container">
+          <header class="section-title">
+            <div class="section-badge">KORPUS BERITA PENELITIAN</div>
+            <h2 id="dataset-heading">Distribusi 5 Kategori Berita</h2>
+            <p>
+              Korpus penelitian dikurasi dari berbagai portal media berita daring nasional berbahasa Indonesia terverifikasi,
+              mencakup lima pilar topik pemberitaan utama.
+            </p>
+          </header>
+
+          <div class="dataset-grid">
+            <article class="dataset-card card-politik">
+              <div class="dataset-card-icon">
+                <i class="fa-solid fa-landmark" aria-hidden="true"></i>
+              </div>
+              <h3>Politik</h3>
+              <p>
+                Pemberitaan mengenai kebijakan eksekutif, sidang parlemen/DPR, dinamika kabinet, diplomasi internasional,
+                penyelenggaraan pemilu dan pilkada, serta isu partai politik nasional.
+              </p>
+              <div class="dataset-footer-tag">Label: Politik</div>
+            </article>
+
+            <article class="dataset-card card-ekonomi">
+              <div class="dataset-card-icon">
+                <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+              </div>
+              <h3>Ekonomi</h3>
+              <p>
+                Isu pergerakan pasar modal (IHSG), suku bunga perbankan, laju inflasi, investasi UMKM, devisa negara, harga bahan
+                pokok komoditas pangan, serta perdagangan internasional.
+              </p>
+              <div class="dataset-footer-tag">Label: Ekonomi</div>
+            </article>
+
+            <article class="dataset-card card-hukum">
+              <div class="dataset-card-icon">
+                <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+              </div>
+              <h3>Hukum</h3>
+              <p>
+                Pemberitaan seputar persidangan kasus tindak pidana korupsi (Tipikor), penegakan hukum kepolisian, putusan Mahkamah
+                Konstitusi/MA, kriminalitas, serta reformasi regulasi perundangan.
+              </p>
+              <div class="dataset-footer-tag">Label: Hukum</div>
+            </article>
+
+            <article class="dataset-card card-olahraga">
+              <div class="dataset-card-icon">
+                <i class="fa-solid fa-futbol" aria-hidden="true"></i>
+              </div>
+              <h3>Olahraga</h3>
+              <p>
+                Liputan kompetisi sepak bola nasional (Liga 1), perjuangan Timnas Indonesia di ajang internasional, turnamen bulu
+                tangkis, atletik, dan perkembangan dunia olahraga profesional.
+              </p>
+              <div class="dataset-footer-tag">Label: Olahraga</div>
+            </article>
+
+            <article class="dataset-card card-pendidikan">
+              <div class="dataset-card-icon">
+                <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+              </div>
+              <h3>Pendidikan</h3>
+              <p>
+                Informasi implementasi kurikulum merdeka, seleksi penerimaan mahasiswa baru (SNBP/SNBT), program beasiswa perguruan
+                tinggi, kompetisi sains, serta fasilitas pendidikan sekolah dan kampus.
+              </p>
+              <div class="dataset-footer-tag">Label: Pendidikan</div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- ================= MITRA MEDAN POS ================= -->
+      <section class="mitra-section" id="mitra" aria-labelledby="mitra-heading">
+        <div class="container">
+          <header class="section-title">
+            <div class="section-badge">KEMITRAAN & KORPUS BERITA</div>
+            <h2 id="mitra-heading">Mitra Media: Harian Medan Pos & medanposonline.com</h2>
+            <p>
+              Sistem klasifikasi cerdas IndoBERT ini dibangun dan diselaraskan dengan standar redaksional serta korpus berita harian
+              dari mitra media pers terkemuka di Sumatera Utara, <strong>Medan Pos</strong>.
+            </p>
+          </header>
+
+          <div class="mitra-grid">
+            <div class="mitra-info-card">
+              <div class="mitra-header">
+                <div class="mitra-logo-wrap">
+                  <i class="fa-solid fa-newspaper mitra-icon"></i>
+                </div>
+                <div>
+                  <h3 class="mitra-name">Harian Medan Pos / PT Sinar Agung Berdikari</h3>
+                  <span class="mitra-tagline">"Cepat & Aktual" &bull; Portal Berita Digital Sumatera Utara</span>
+                </div>
+              </div>
+              <p class="mitra-desc">
+                <strong>Medan Pos</strong> (medanposonline.com) adalah institusi pers terpercaya yang menyajikan informasi berita aktual,
+                investigasi, hukum, peristiwa, politik, ekonomi, olahraga, dan pendidikan di kawasan Sumatera Utara serta nasional.
+              </p>
+              <div class="mitra-meta-list">
+                <div class="mitra-meta-item">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <div>
+                    <strong>Alamat Kantor Redaksi:</strong>
+                    <span>Jl. Perdana No.107/109, Kesawan, Kec. Medan Baru, Kota Medan, Sumatera Utara 20111</span>
+                  </div>
+                </div>
+                <div class="mitra-meta-item">
+                  <i class="fa-solid fa-globe"></i>
+                  <div>
+                    <strong>Situs Resmi Portal Berita:</strong>
+                    <a href="https://www.medanposonline.com/" target="_blank" rel="noopener noreferrer">https://www.medanposonline.com/</a>
+                  </div>
+                </div>
+                <div class="mitra-meta-item">
+                  <i class="fa-solid fa-envelope"></i>
+                  <div>
+                    <strong>Email Redaksi:</strong>
+                    <span>medanposonline2020@gmail.com</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mitra-detail-card">
+              <h4 class="mitra-subheading"><i class="fa-solid fa-users-gear"></i> Struktur Redaksional & Manajemen</h4>
+              <ul class="mitra-team-list">
+                <li><span>Pemimpin Redaksi / Direktur Utama:</span> <strong>H. Farianda Putra Sinik, S.E</strong></li>
+                <li><span>Wakil Pemimpin Redaksi:</span> <strong>Tuah Armadi Tarigan, S.H</strong></li>
+                <li><span>Penanggung Jawab:</span> <strong>Rifki Warisan, S.Sos</strong></li>
+                <li><span>Koordinator Liputan:</span> <strong>Ardi Yanuar, S.Kom</strong></li>
+                <li><span>Penerbit:</span> <strong>PT Sinar Agung Berdikari</strong></li>
+              </ul>
+              <div class="mitra-action">
+                <a href="https://www.medanposonline.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Kunjungi Portal Medan Pos
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer" id="footer" aria-label="Informasi Footer & Hak Cipta">
+      <div class="container">
+        <div class="footer-masthead">
+          <div class="footer-logo">
+            <div class="footer-logo-icon footer-logo-main">
+              <img src="LOGO.jpeg" alt="Logo IndoBERT Newsroom" width="48" height="48" />
+            </div>
+            <div class="footer-logo-icon footer-logo-unimed" style="background: #ffffff; padding: 2px;">
+              <img src="img/Lambang_Universitas_Negeri_Medan.png" alt="Logo Universitas Negeri Medan" width="48" height="48" style="object-fit: contain;" />
+            </div>
+            <div>
+              <h3 class="footer-brand-title">PORTAL REDAKSI BERITA ONLINE</h3>
+              <p class="footer-brand-sub">Sistem Klasifikasi Berita Otomatis &bull; IndoBERT Pre-trained Model</p>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Sistem cerdas klasifikasi naskah jurnalistik berbasis representasi kontekstual IndoBERT Deep Learning.
+            Bekerja sama dengan <strong>Harian Medan Pos (medanposonline.com)</strong> dalam mengklasifikasikan naskah berita
+            ke dalam 5 rubrik utama secara presisi, objektif, dan real-time.
+          </p>
+        </div>
+
+        <hr class="footer-sep" />
+
+        <div class="footer-bottom">
+          <div class="academic-info">
+            <span><strong>Pengembang:</strong> <span id="footer-dev-name">Zidan indra nugraha</span></span>
+            <span class="sep">&bull;</span>
+            <span id="footer-dev-program">Program Studi Ilmu Komputer</span>
+            <span class="sep">&bull;</span>
+            <span style="display: inline-flex; align-items: center; gap: 5px;"><img src="img/Lambang_Universitas_Negeri_Medan.png" alt="Logo UNIMED" width="18" height="18" style="object-fit: contain; vertical-align: middle;" /><span id="footer-dev-inst">Universitas Negeri Medan</span></span>
+            <span class="sep">&bull;</span>
+            <span><strong>Mitra Redaksi:</strong> <a href="https://www.medanposonline.com/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Medan Pos Online</a> (Jl. Perdana No.107/109, Kesawan, Medan)</span>
+          </div>
+          <div class="copyright">
+            &copy; 2025 IndoBERT Newsroom &bull; Dibuat Tahun 2025 &bull; Pengembang: Zidan indra nugraha &bull; Kolaborasi Media Intelligence bersama Harian Medan Pos.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Client-side Logic Script -->
+    <script src="script.js"></script>
+  </body>
+</html>

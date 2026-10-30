@@ -1,0 +1,16 @@
+{
+  "label2id": {
+    "Ekonomi": 0,
+    "Hukum": 1,
+    "Olahraga": 2,
+    "Pendidikan": 3,
+    "Politik": 4
+  },
+  "id2label": {
+    "0": "Ekonomi",
+    "1": "Hukum",
+    "2": "Olahraga",
+    "3": "Pendidikan",
+    "4": "Politik"
+  }
+}

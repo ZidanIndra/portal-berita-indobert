@@ -1,0 +1,20 @@
+{
+  "input_mode": "title_content_pair",
+  "max_length": 512,
+  "unicode_normalization": "NFKC",
+  "remove_url_literal": true,
+  "remove_boilerplate_lines": [
+    "canvas",
+    "Baca Juga:",
+    "Ayo baca konten menarik lainnya dan follow kami di Google News",
+    "Editor : ...",
+    "Tags",
+    "komentar",
+    "empty markdown table"
+  ],
+  "stemming": false,
+  "stopword_removal": false,
+  "manual_lowercasing": false,
+  "remove_punctuation": false,
+  "remove_numbers": false
+}

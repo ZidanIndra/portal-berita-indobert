@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel Pengaturan Konten Portal | IndoBERT Editorial Admin</title>
+    <meta name="description" content="Dashboard Pengaturan Konten Portal Redaksi Berita Online IndoBERT Newsroom" />
+    <link rel="icon" type="image/jpeg" href="LOGO.jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Admin Dashboard Specific Styles */
+      body.admin-body {
+        background-color: var(--bg-paper, #f4efe6);
+        color: var(--text-dark, #1c1917);
+        min-height: 100vh;
+      }
+      .admin-header {
+        background: #1c1917;
+        color: #fff;
+        padding: 1rem 0;
+        border-bottom: 3px solid var(--accent-red, #c0392b);
+      }
+      .admin-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .admin-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .admin-brand h2 {
+        font-family: var(--font-headline, 'Playfair Display', serif);
+        font-size: 1.35rem;
+        margin: 0;
+        color: #fff;
+      }
+      .admin-badge {
+        background: var(--accent-red, #c0392b);
+        color: #fff;
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+        border-radius: 3px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .admin-container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1.5rem;
+      }
+      .admin-grid {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 2rem;
+      }
+      @media (max-width: 900px) {
+        .admin-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .admin-sidebar {
+        background: #fff;
+        border: 1px solid var(--border-light, #d7ccc8);
+        border-radius: 6px;
+        padding: 1.25rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        height: fit-content;
+      }
+      .admin-sidebar-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .admin-menu-btn {
+        width: 100%;
+        text-align: left;
+        background: none;
+        border: none;
+        padding: 0.75rem 1rem;
+        border-radius: 4px;
+        font-family: var(--font-body, inherit);
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text-dark, #1c1917);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        transition: all 0.2s ease;
+      }
+      .admin-menu-btn:hover,
+      .admin-menu-btn.active {
+        background: var(--bg-card, #faf6f0);
+        color: var(--accent-red, #c0392b);
+        border-left: 4px solid var(--accent-red, #c0392b);
+      }
+      .admin-main {
+        background: #fff;
+        border: 1px solid var(--border-light, #d7ccc8);
+        border-radius: 6px;
+        padding: 2rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      }
+      .admin-section-title {
+        font-family: var(--font-headline, 'Playfair Display', serif);
+        font-size: 1.5rem;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        color: #1c1917;
+        border-bottom: 2px solid #1c1917;
+        padding-bottom: 0.5rem;
+      }
+      .admin-section-sub {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+      .form-group {
+        margin-bottom: 1.25rem;
+      }
+      .form-group label {
+        display: block;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+        color: #1c1917;
+      }
+      .form-control {
+        width: 100%;
+        padding: 0.65rem 0.85rem;
+        font-family: var(--font-body, inherit);
+        font-size: 0.95rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      .form-control:focus {
+        border-color: var(--accent-red, #c0392b);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15);
+      }
+      textarea.form-control {
+        min-height: 90px;
+        resize: vertical;
+      }
+      .admin-img-preview {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 0.75rem;
+        padding: 0.75rem;
+        background: var(--bg-card, #faf6f0);
+        border: 1px dashed #bbb;
+        border-radius: 4px;
+      }
+      .preview-box {
+        max-width: 140px;
+        max-height: 100px;
+        object-fit: contain;
+        border: 1px solid #ddd;
+        background: #fff;
+      }
+      .admin-btn-bar {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid #eee;
+      }
+      .btn-admin-save {
+        background: #1c1917;
+        color: #fff;
+        border: none;
+        padding: 0.75rem 1.75rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .btn-admin-save:hover {
+        background: var(--accent-red, #c0392b);
+      }
+      .btn-admin-reset {
+        background: #f0f0f0;
+        color: #333;
+        border: 1px solid #ccc;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .btn-admin-reset:hover {
+        background: #e0e0e0;
+      }
+      .admin-alert {
+        display: none;
+        padding: 0.75rem 1rem;
+        border-radius: 4px;
+        margin-bottom: 1.25rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+      .admin-alert-success {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+      .admin-tab-content {
+        display: none;
+      }
+      .admin-tab-content.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body class="admin-body">
+    <!-- Login Gate Overlay -->
+    <div id="admin-auth-overlay" style="display: flex; position: fixed; inset: 0; background: #1c1917; z-index: 99999; align-items: center; justify-content: center; padding: 1.5rem;">
+      <div style="background: #ffffff; width: 100%; max-width: 440px; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); border-top: 5px solid var(--accent-red, #c0392b); padding: 2.5rem 2rem; text-align: center;">
+        <div style="width: 60px; height: 60px; background: #faf4ed; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; color: var(--accent-red, #c0392b); font-size: 1.6rem; border: 1px solid #e8ded2;">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <h2 style="font-family: var(--font-headline, 'Playfair Display', serif); margin: 0 0 0.5rem; font-size: 1.45rem; color: #1c1917;">Akses Dashboard Redaksi</h2>
+        <p style="color: #666; font-size: 0.9rem; margin: 0 0 1.5rem; line-height: 1.4;">Halaman ini diproteksi. Masukkan kata sandi administrator untuk melanjutkan.</p>
+        
+        <form id="admin-auth-form">
+          <div style="margin-bottom: 1.25rem; text-align: left;">
+            <label for="admin-pass-input" style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: #333;">Kata Sandi Administrator</label>
+            <div style="position: relative;">
+              <input type="password" id="admin-pass-input" class="form-control" placeholder="Masukkan password..." required style="padding-right: 2.75rem;" autocomplete="current-password" autofocus />
+              <button type="button" id="btn-toggle-pass" style="position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: #777; cursor: pointer; padding: 0.25rem; font-size: 0.95rem;">
+                <i class="fa-regular fa-eye" id="eye-icon"></i>
+              </button>
+            </div>
+            <div id="auth-error-msg" style="display: none; color: #c0392b; font-size: 0.82rem; margin-top: 0.5rem; font-weight: 600;">
+              <i class="fa-solid fa-circle-exclamation"></i> Kata sandi salah. Silakan coba lagi!
+            </div>
+          </div>
+          
+          <button type="submit" class="btn-admin-save" style="width: 100%; justify-content: center; padding: 0.8rem; font-size: 1rem; margin-bottom: 1rem;">
+            <i class="fa-solid fa-right-to-bracket"></i> Masuk ke Dashboard
+          </button>
+          
+          <a href="index.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #666; font-size: 0.85rem; text-decoration: none; font-weight: 600;">
+            <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+          </a>
+        </form>
+      </div>
+    </div>
+
+    <!-- Protected Admin Content Wrapper -->
+    <div id="admin-wrapper" style="display: none;">
+      <header class="admin-header">
+        <div class="container admin-nav">
+          <div class="admin-brand">
+            <img src="LOGO.jpeg" id="admin-header-logo" alt="Logo" width="36" height="36" style="border-radius: 4px;" />
+            <h2>IndoBERT Newsroom — Dashboard Redaksi</h2>
+            <span class="admin-badge">Admin Mode</span>
+          </div>
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <a href="index.html" class="btn-preset" style="background:#fff; color:#1c1917; text-decoration:none; font-weight:700; padding:0.4rem 0.8rem; border-radius:4px;">
+              <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+            </a>
+            <button type="button" id="btn-admin-logout" class="btn-preset" style="background:var(--accent-red, #c0392b); color:#fff; border:none; font-weight:700; padding:0.4rem 0.8rem; border-radius:4px; cursor:pointer;">
+              <i class="fa-solid fa-right-from-bracket"></i> Keluar
+            </button>
+          </div>
+        </div>
+      </header>
+
+    <div class="admin-container">
+      <div id="admin-notification" class="admin-alert admin-alert-success">
+        <i class="fa-solid fa-circle-check"></i> <span id="notification-msg">Perubahan berhasil disimpan!</span>
+      </div>
+
+      <div class="admin-grid">
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar">
+          <ul class="admin-sidebar-menu">
+            <li>
+              <button type="button" class="admin-menu-btn active" data-target="tab-identitas">
+                <i class="fa-solid fa-newspaper"></i> Identitas Portal
+              </button>
+            </li>
+            <li>
+              <button type="button" class="admin-menu-btn" data-target="tab-hero">
+                <i class="fa-solid fa-image"></i> Hero & Banner
+              </button>
+            </li>
+            <li>
+              <button type="button" class="admin-menu-btn" data-target="tab-mitra">
+                <i class="fa-solid fa-handshake"></i> Kemitraan Pers
+              </button>
+            </li>
+            <li>
+              <button type="button" class="admin-menu-btn" data-target="tab-api">
+                <i class="fa-solid fa-server"></i> API & Backend
+              </button>
+            </li>
+            <li>
+              <button type="button" class="admin-menu-btn" data-target="tab-footer">
+                <i class="fa-solid fa-shoe-prints"></i> Footer & Kontak
+              </button>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- Main Form Panels -->
+        <main class="admin-main">
+          <!-- Tab 1: Identitas Portal -->
+          <div id="tab-identitas" class="admin-tab-content active">
+            <h3 class="admin-section-title"><i class="fa-solid fa-newspaper"></i> Identitas & Header Portal</h3>
+            <p class="admin-section-sub">Atur nama portal koran digital, headline surat kabar, dan logo utama redaksi.</p>
+
+            <div class="form-group">
+              <label for="conf-site-title">Nama Surat Kabar (Masthead Title)</label>
+              <input type="text" id="conf-site-title" class="form-control" value="PORTAL REDAKSI BERITA ONLINE" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-site-subtitle">Sub-Title Masthead</label>
+              <input type="text" id="conf-site-subtitle" class="form-control" value="INDOBERT AI NEWSROOM • ARSITEKTUR TRANSFORMER PRE-TRAINED" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-topline">Tagline Atas Masthead</label>
+              <input type="text" id="conf-topline" class="form-control" value="SISTEM INTELIJEN KLASIFIKASI NASKAH JURNALISTIK BERBASIS DEEP LEARNING" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-brand-name">Nama Brand Navbar</label>
+              <input type="text" id="conf-brand-name" class="form-control" value="IndoBERT Newsroom" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-brand-badge">Badge Mitra Navbar</label>
+              <input type="text" id="conf-brand-badge" class="form-control" value="Medan Pos Partner" />
+            </div>
+
+            <div class="form-group">
+              <label>Logo Redaksi (Upload atau URL Gambar)</label>
+              <input type="file" id="upload-logo" accept="image/*" class="form-control" style="margin-bottom:0.5rem;" />
+              <input type="text" id="conf-logo-url" class="form-control" placeholder="Atau masukkan URL / path lokal logo (default: LOGO.jpeg)" value="LOGO.jpeg" />
+              <div class="admin-img-preview">
+                <img id="preview-logo" src="LOGO.jpeg" alt="Preview Logo" class="preview-box" />
+                <span style="font-size:0.85rem; color:#666;">Preview logo saat ini. Mendukung format JPEG, PNG, WEBP, SVG.</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="conf-admin-password"><i class="fa-solid fa-key"></i> Kata Sandi Akses Admin</label>
+              <input type="text" id="conf-admin-password" class="form-control" value="adminberita123" />
+              <small style="color: #666; display:block; margin-top:0.3rem;">
+                * Password default: <code>adminberita123</code>. Ubah dan simpan jika ingin mengganti kata sandi login admin.
+              </small>
+            </div>
+          </div>
+
+          <!-- Tab 2: Hero & Banner -->
+          <div id="tab-hero" class="admin-tab-content">
+            <h3 class="admin-section-title"><i class="fa-solid fa-image"></i> Hero Section & Foto Banner</h3>
+            <p class="admin-section-sub">Sesuaikan teks tajuk utama berita dan ilustrasi koran pada halaman beranda.</p>
+
+            <div class="form-group">
+              <label for="conf-hero-badge">Label Badge Hero</label>
+              <input type="text" id="conf-hero-badge" class="form-control" value="Teknologi NLP Indonesia Terkini" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-hero-headline">Judul Headline Hero</label>
+              <input type="text" id="conf-hero-headline" class="form-control" value="Klasifikasi Otomatis Berita Online" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-hero-highlight">Teks Highlight Headline</label>
+              <input type="text" id="conf-hero-highlight" class="form-control" value="dengan IndoBERT Base" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-hero-desc">Deskripsi Hero</label>
+              <textarea id="conf-hero-desc" class="form-control">Platform intelijen ruang redaksi bertenaga model bahasa IndoBERT berbasis Transformer. Dirancang khusus untuk mengelompokkan naskah berita nasional ke dalam lima kategori esensial secara objektif, berakurasi tinggi, dan mempertahankan koherensi konteks semantik judul serta naskah artikel.</textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Foto Banner Hero / Koran (Upload atau URL)</label>
+              <input type="file" id="upload-hero-img" accept="image/*" class="form-control" style="margin-bottom:0.5rem;" />
+              <input type="text" id="conf-hero-img" class="form-control" placeholder="Path file gambar (default: FotoKoran.png)" value="FotoKoran.png" />
+              <div class="admin-img-preview">
+                <img id="preview-hero-img" src="FotoKoran.png" alt="Preview Banner" class="preview-box" />
+                <span style="font-size:0.85rem; color:#666;">Preview gambar banner koran / hero section.</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="conf-hero-caption">Keterangan Foto Banner (Caption)</label>
+              <input type="text" id="conf-hero-caption" class="form-control" value="Pemrosesan teks digital berita daring berbahasa Indonesia menggunakan IndoBERT Pre-trained Model." />
+            </div>
+          </div>
+
+          <!-- Tab 3: Kemitraan Pers -->
+          <div id="tab-mitra" class="admin-tab-content">
+            <h3 class="admin-section-title"><i class="fa-solid fa-handshake"></i> Kemitraan Pers & Redaksi Medan Pos</h3>
+            <p class="admin-section-sub">Kelola data identitas mitra media pers, alamat redaksi, dan susunan pimpinan.</p>
+
+            <div class="form-group">
+              <label for="conf-mitra-name">Nama Institusi Media Mitra</label>
+              <input type="text" id="conf-mitra-name" class="form-control" value="Harian Medan Pos / PT Sinar Agung Berdikari" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-mitra-motto">Slogan / Motto Media</label>
+              <input type="text" id="conf-mitra-motto" class="form-control" value="&quot;Cepat &amp; Aktual&quot; &bull; Portal Berita Digital Sumatera Utara" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-mitra-desc">Deskripsi Profil Mitra</label>
+              <textarea id="conf-mitra-desc" class="form-control">Medan Pos (medanposonline.com) adalah institusi pers terpercaya yang menyajikan informasi berita aktual, investigasi, hukum, peristiwa, politik, ekonomi, olahraga, dan pendidikan di kawasan Sumatera Utara serta nasional.</textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="conf-mitra-address">Alamat Kantor Redaksi</label>
+              <input type="text" id="conf-mitra-address" class="form-control" value="Jl. Perdana No.107/109, Kesawan, Kec. Medan Baru, Kota Medan, Sumatera Utara 20111" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-mitra-url">URL Situs Resmi Mitra</label>
+              <input type="url" id="conf-mitra-url" class="form-control" value="https://www.medanposonline.com/" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-mitra-email">Email Redaksi</label>
+              <input type="email" id="conf-mitra-email" class="form-control" value="medanposonline2020@gmail.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-mitra-pemred">Pemimpin Redaksi / Dirut</label>
+              <input type="text" id="conf-mitra-pemred" class="form-control" value="H. Farianda Putra Sinik, S.E" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-mitra-wapemred">Wakil Pemimpin Redaksi</label>
+              <input type="text" id="conf-mitra-wapemred" class="form-control" value="Tuah Armadi Tarigan, S.H" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-mitra-penjab">Penanggung Jawab</label>
+              <input type="text" id="conf-mitra-penjab" class="form-control" value="Rifki Warisan, S.Sos" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-mitra-korlip">Koordinator Liputan</label>
+              <input type="text" id="conf-mitra-korlip" class="form-control" value="Ardi Yanuar, S.Kom" />
+            </div>
+          </div>
+
+          <!-- Tab 4: API & Backend Inference -->
+          <div id="tab-api" class="admin-tab-content">
+            <h3 class="admin-section-title"><i class="fa-solid fa-server"></i> Konfigurasi API & Endpoint Inferensi</h3>
+            <p class="admin-section-sub">Atur target URL endpoint model untuk inferensi langsung dari portal website.</p>
+
+            <div class="form-group">
+              <label for="conf-api-url">Custom Inference API URL</label>
+              <input type="text" id="conf-api-url" class="form-control" placeholder="Contoh: http://127.0.0.1:5000/prediksi atau https://backend-kamu.ngrok-free.app/prediksi" value="" />
+              <small style="color: #666; display:block; margin-top:0.3rem;">
+                * Jika dikosongkan, sistem secara cerdas menggunakan local backend (`/prediksi`) jika ada, dan otomatis bertransisi ke <strong>IndoBERT Smart Client Classifier Engine</strong> ketika berada di Hugging Face Static Space (mencegah error 404).
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label for="conf-hf-model-id">Hugging Face Model Repository</label>
+              <input type="text" id="conf-hf-model-id" class="form-control" value="zidanindraa2/indobert-klasifikasi-berita" readonly style="background:#eee;" />
+              <small style="color:#666;">Model IndoBERT yang telah berhasil di-deploy ke Hugging Face Model Hub.</small>
+            </div>
+          </div>
+
+          <!-- Tab 5: Footer & Kontak -->
+          <div id="tab-footer" class="admin-tab-content">
+            <h3 class="admin-section-title"><i class="fa-solid fa-shoe-prints"></i> Pengaturan Footer & Pengembang</h3>
+            <p class="admin-section-sub">Atur data hak cipta, deskripsi penutup portal, dan profil pengembang.</p>
+
+            <div class="form-group">
+              <label for="conf-footer-desc">Paragraf Deskripsi Footer</label>
+              <textarea id="conf-footer-desc" class="form-control">Sistem cerdas klasifikasi naskah jurnalistik berbasis representasi kontekstual IndoBERT Deep Learning. Bekerja sama dengan Harian Medan Pos (medanposonline.com) dalam mengklasifikasikan naskah berita ke dalam 5 rubrik utama secara presisi, objektif, dan real-time.</textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="conf-dev-name">Nama Pengembang / Peneliti</label>
+              <input type="text" id="conf-dev-name" class="form-control" value="Zidan indra nugraha" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-dev-program">Program Studi</label>
+              <input type="text" id="conf-dev-program" class="form-control" value="Program Studi Ilmu Komputer" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-dev-inst">Institusi / Universitas</label>
+              <input type="text" id="conf-dev-inst" class="form-control" value="Universitas Negeri Medan" />
+            </div>
+
+            <div class="form-group">
+              <label for="conf-copyright">Teks Hak Cipta (Copyright)</label>
+              <input type="text" id="conf-copyright" class="form-control" value="&copy; 2025 IndoBERT Newsroom &bull; Dibuat Tahun 2025 &bull; Kolaborasi Media Intelligence bersama Harian Medan Pos." />
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="admin-btn-bar">
+            <button type="button" class="btn-admin-save" id="btn-save-settings">
+              <i class="fa-solid fa-floppy-disk"></i> Simpan Seluruh Konten
+            </button>
+            <button type="button" class="btn-admin-reset" id="btn-reset-default">
+              <i class="fa-solid fa-rotate-left"></i> Pulihkan Pengaturan Awal
+            </button>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div> <!-- /admin-wrapper -->
+
+    <script>
+      // Admin Dashboard Script with localStorage Persistence
+      const STORAGE_KEY = "indobert_portal_content_v1";
+      const AUTH_KEY = "indobert_admin_authenticated";
+
+      const DEFAULTS = {
+        siteTitle: "PORTAL REDAKSI BERITA ONLINE",
+        siteSubtitle: "INDOBERT AI NEWSROOM • ARSITEKTUR TRANSFORMER PRE-TRAINED",
+        topline: "SISTEM INTELIJEN KLASIFIKASI NASKAH JURNALISTIK BERBASIS DEEP LEARNING",
+        brandName: "IndoBERT Newsroom",
+        brandBadge: "Medan Pos Partner",
+        logoUrl: "LOGO.jpeg",
+        adminPassword: "adminberita123",
+        heroBadge: "Teknologi NLP Indonesia Terkini",
+        heroHeadline: "Klasifikasi Otomatis Berita Online",
+        heroHighlight: "dengan IndoBERT Base",
+        heroDesc: "Platform intelijen ruang redaksi bertenaga model bahasa IndoBERT berbasis Transformer. Dirancang khusus untuk mengelompokkan naskah berita nasional ke dalam lima kategori esensial secara objektif, berakurasi tinggi, dan mempertahankan koherensi konteks semantik judul serta naskah artikel.",
+        heroImg: "FotoKoran.png",
+        heroCaption: "Pemrosesan teks digital berita daring berbahasa Indonesia menggunakan IndoBERT Pre-trained Model.",
+        mitraName: "Harian Medan Pos / PT Sinar Agung Berdikari",
+        mitraMotto: '"Cepat & Aktual" • Portal Berita Digital Sumatera Utara',
+        mitraDesc: "Medan Pos (medanposonline.com) adalah institusi pers terpercaya yang menyajikan informasi berita aktual, investigasi, hukum, peristiwa, politik, ekonomi, olahraga, dan pendidikan di kawasan Sumatera Utara serta nasional.",
+        mitraAddress: "Jl. Perdana No.107/109, Kesawan, Kec. Medan Baru, Kota Medan, Sumatera Utara 20111",
+        mitraUrl: "https://www.medanposonline.com/",
+        mitraEmail: "medanposonline2020@gmail.com",
+        mitraPemred: "H. Farianda Putra Sinik, S.E",
+        mitraWapemred: "Tuah Armadi Tarigan, S.H",
+        mitraPenjab: "Rifki Warisan, S.Sos",
+        mitraKorlip: "Ardi Yanuar, S.Kom",
+        apiUrl: "",
+        footerDesc: "Sistem cerdas klasifikasi naskah jurnalistik berbasis representasi kontekstual IndoBERT Deep Learning. Bekerja sama dengan Harian Medan Pos (medanposonline.com) dalam mengklasifikasikan naskah berita ke dalam 5 rubrik utama secara presisi, objektif, dan real-time.",
+        devName: "Zidan indra nugraha",
+        devProgram: "Program Studi Ilmu Komputer",
+        devInst: "Universitas Negeri Medan",
+        copyright: "© 2025 IndoBERT Newsroom • Dibuat Tahun 2025 • Kolaborasi Media Intelligence bersama Harian Medan Pos."
+      };
+
+      // Load config from localStorage
+      function loadConfig() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (parsed.devProgram === "Pendidikan Teknologi Informatika dan Komputer") {
+              parsed.devProgram = "Program Studi Ilmu Komputer";
+            }
+            if (parsed.devName === "Tiara Tania" || !parsed.devName) {
+              parsed.devName = "Zidan indra nugraha";
+            }
+            if (parsed.copyright && parsed.copyright.includes("2026")) {
+              parsed.copyright = parsed.copyright.replace("2026", "2025");
+            }
+            try { localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed)); } catch (e) {}
+            return { ...DEFAULTS, ...parsed };
+          }
+        } catch (e) {
+          console.error("Error reading localStorage", e);
+        }
+        return { ...DEFAULTS };
+      }
+
+      function populateForm(cfg) {
+        document.getElementById("conf-site-title").value = cfg.siteTitle || "";
+        document.getElementById("conf-site-subtitle").value = cfg.siteSubtitle || "";
+        document.getElementById("conf-topline").value = cfg.topline || "";
+        document.getElementById("conf-brand-name").value = cfg.brandName || "";
+        document.getElementById("conf-brand-badge").value = cfg.brandBadge || "";
+        document.getElementById("conf-logo-url").value = cfg.logoUrl || "";
+        document.getElementById("preview-logo").src = cfg.logoUrl || "LOGO.jpeg";
+        document.getElementById("admin-header-logo").src = cfg.logoUrl || "LOGO.jpeg";
+
+        document.getElementById("conf-hero-badge").value = cfg.heroBadge || "";
+        document.getElementById("conf-hero-headline").value = cfg.heroHeadline || "";
+        document.getElementById("conf-hero-highlight").value = cfg.heroHighlight || "";
+        document.getElementById("conf-hero-desc").value = cfg.heroDesc || "";
+        document.getElementById("conf-hero-img").value = cfg.heroImg || "";
+        document.getElementById("preview-hero-img").src = cfg.heroImg || "FotoKoran.png";
+        document.getElementById("conf-hero-caption").value = cfg.heroCaption || "";
+
+        document.getElementById("conf-mitra-name").value = cfg.mitraName || "";
+        document.getElementById("conf-mitra-motto").value = cfg.mitraMotto || "";
+        document.getElementById("conf-mitra-desc").value = cfg.mitraDesc || "";
+        document.getElementById("conf-mitra-address").value = cfg.mitraAddress || "";
+        document.getElementById("conf-mitra-url").value = cfg.mitraUrl || "";
+        document.getElementById("conf-mitra-email").value = cfg.mitraEmail || "";
+        document.getElementById("conf-mitra-pemred").value = cfg.mitraPemred || "";
+        document.getElementById("conf-mitra-wapemred").value = cfg.mitraWapemred || "";
+        document.getElementById("conf-mitra-penjab").value = cfg.mitraPenjab || "";
+        document.getElementById("conf-mitra-korlip").value = cfg.mitraKorlip || "";
+
+        document.getElementById("conf-api-url").value = cfg.apiUrl || "";
+        document.getElementById("conf-admin-password").value = cfg.adminPassword || "adminberita123";
+
+        document.getElementById("conf-footer-desc").value = cfg.footerDesc || "";
+        document.getElementById("conf-dev-name").value = cfg.devName || "";
+        document.getElementById("conf-dev-program").value = cfg.devProgram || "";
+        document.getElementById("conf-dev-inst").value = cfg.devInst || "";
+        document.getElementById("conf-copyright").value = cfg.copyright || "";
+      }
+
+      function gatherForm() {
+        return {
+          siteTitle: document.getElementById("conf-site-title").value.trim(),
+          siteSubtitle: document.getElementById("conf-site-subtitle").value.trim(),
+          topline: document.getElementById("conf-topline").value.trim(),
+          brandName: document.getElementById("conf-brand-name").value.trim(),
+          brandBadge: document.getElementById("conf-brand-badge").value.trim(),
+          logoUrl: document.getElementById("conf-logo-url").value.trim() || "LOGO.jpeg",
+          heroBadge: document.getElementById("conf-hero-badge").value.trim(),
+          heroHeadline: document.getElementById("conf-hero-headline").value.trim(),
+          heroHighlight: document.getElementById("conf-hero-highlight").value.trim(),
+          heroDesc: document.getElementById("conf-hero-desc").value.trim(),
+          heroImg: document.getElementById("conf-hero-img").value.trim() || "FotoKoran.png",
+          heroCaption: document.getElementById("conf-hero-caption").value.trim(),
+          mitraName: document.getElementById("conf-mitra-name").value.trim(),
+          mitraMotto: document.getElementById("conf-mitra-motto").value.trim(),
+          mitraDesc: document.getElementById("conf-mitra-desc").value.trim(),
+          mitraAddress: document.getElementById("conf-mitra-address").value.trim(),
+          mitraUrl: document.getElementById("conf-mitra-url").value.trim(),
+          mitraEmail: document.getElementById("conf-mitra-email").value.trim(),
+          mitraPemred: document.getElementById("conf-mitra-pemred").value.trim(),
+          mitraWapemred: document.getElementById("conf-mitra-wapemred").value.trim(),
+          mitraPenjab: document.getElementById("conf-mitra-penjab").value.trim(),
+          mitraKorlip: document.getElementById("conf-mitra-korlip").value.trim(),
+          apiUrl: document.getElementById("conf-api-url").value.trim(),
+          adminPassword: document.getElementById("conf-admin-password").value.trim() || "adminberita123",
+          footerDesc: document.getElementById("conf-footer-desc").value.trim(),
+          devName: document.getElementById("conf-dev-name").value.trim(),
+          devProgram: document.getElementById("conf-dev-program").value.trim(),
+          devInst: document.getElementById("conf-dev-inst").value.trim(),
+          copyright: document.getElementById("conf-copyright").value.trim()
+        };
+      }
+
+      function notify(msg, isSuccess = true) {
+        const notif = document.getElementById("admin-notification");
+        const msgEl = document.getElementById("notification-msg");
+        notif.className = isSuccess ? "admin-alert admin-alert-success" : "admin-alert";
+        if (!isSuccess) {
+          notif.style.background = "#f8d7da";
+          notif.style.color = "#721c24";
+          notif.style.border = "1px solid #f5c6cb";
+        }
+        msgEl.textContent = msg;
+        notif.style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        setTimeout(() => {
+          notif.style.display = "none";
+        }, 3500);
+      }
+
+      // Handle Image uploads to base64
+      function setupImageUpload(inputEl, pathEl, previewEl) {
+        inputEl.addEventListener("change", function () {
+          const file = this.files[0];
+          if (file) {
+            if (file.size > 2 * 1024 * 1024) {
+              alert("Ukuran file gambar maksimal 2MB!");
+              return;
+            }
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              const base64 = e.target.result;
+              previewEl.src = base64;
+              pathEl.value = base64;
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+      }
+
+      function checkAuth() {
+        const isAuth = sessionStorage.getItem(AUTH_KEY) === "true";
+        const overlay = document.getElementById("admin-auth-overlay");
+        const wrapper = document.getElementById("admin-wrapper");
+        if (isAuth) {
+          if (overlay) overlay.style.display = "none";
+          if (wrapper) wrapper.style.display = "block";
+        } else {
+          if (overlay) overlay.style.display = "flex";
+          if (wrapper) wrapper.style.display = "none";
+          setTimeout(() => {
+            const passInput = document.getElementById("admin-pass-input");
+            if (passInput) passInput.focus();
+          }, 100);
+        }
+      }
+
+      function handleLogin(e) {
+        if (e) e.preventDefault();
+        const passInput = document.getElementById("admin-pass-input");
+        const errorMsg = document.getElementById("auth-error-msg");
+        const cfg = loadConfig();
+        const expected = cfg.adminPassword || "adminberita123";
+
+        if (passInput && passInput.value === expected) {
+          sessionStorage.setItem(AUTH_KEY, "true");
+          if (errorMsg) errorMsg.style.display = "none";
+          passInput.value = "";
+          checkAuth();
+        } else {
+          if (errorMsg) errorMsg.style.display = "block";
+          if (passInput) {
+            passInput.focus();
+            passInput.select();
+          }
+        }
+      }
+
+      function handleLogout() {
+        sessionStorage.removeItem(AUTH_KEY);
+        checkAuth();
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Setup authentication
+        checkAuth();
+
+        const authForm = document.getElementById("admin-auth-form");
+        if (authForm) {
+          authForm.addEventListener("submit", handleLogin);
+        }
+
+        const btnLogout = document.getElementById("btn-admin-logout");
+        if (btnLogout) {
+          btnLogout.addEventListener("click", handleLogout);
+        }
+
+        const btnTogglePass = document.getElementById("btn-toggle-pass");
+        if (btnTogglePass) {
+          btnTogglePass.addEventListener("click", () => {
+            const input = document.getElementById("admin-pass-input");
+            const icon = document.getElementById("eye-icon");
+            if (input && icon) {
+              if (input.type === "password") {
+                input.type = "text";
+                icon.className = "fa-regular fa-eye-slash";
+              } else {
+                input.type = "password";
+                icon.className = "fa-regular fa-eye";
+              }
+            }
+          });
+        }
+        // Tab switching
+        const tabs = document.querySelectorAll(".admin-menu-btn");
+        tabs.forEach(btn => {
+          btn.addEventListener("click", () => {
+            tabs.forEach(t => t.classList.remove("active"));
+            document.querySelectorAll(".admin-tab-content").forEach(c => c.classList.remove("active"));
+            btn.classList.add("active");
+            const target = btn.getAttribute("data-target");
+            const panel = document.getElementById(target);
+            if (panel) panel.classList.add("active");
+          });
+        });
+
+        // Setup image inputs
+        setupImageUpload(
+          document.getElementById("upload-logo"),
+          document.getElementById("conf-logo-url"),
+          document.getElementById("preview-logo")
+        );
+        setupImageUpload(
+          document.getElementById("upload-hero-img"),
+          document.getElementById("conf-hero-img"),
+          document.getElementById("preview-hero-img")
+        );
+
+        // Preview image url change
+        document.getElementById("conf-logo-url").addEventListener("input", function() {
+          document.getElementById("preview-logo").src = this.value || "LOGO.jpeg";
+        });
+        document.getElementById("conf-hero-img").addEventListener("input", function() {
+          document.getElementById("preview-hero-img").src = this.value || "FotoKoran.png";
+        });
+
+        // Initialize values
+        const config = loadConfig();
+        populateForm(config);
+
+        // Save
+        document.getElementById("btn-save-settings").addEventListener("click", () => {
+          const data = gatherForm();
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            notify("Seluruh konfigurasi konten portal berita berhasil disimpan dan langsung aktif!");
+          } catch (e) {
+            notify("Gagal menyimpan ke penyimpanan lokal browser: " + e.message, false);
+          }
+        });
+
+        // Reset
+        document.getElementById("btn-reset-default").addEventListener("click", () => {
+          if (confirm("Apakah Anda yakin ingin memulihkan seluruh teks dan gambar ke konfigurasi default redaksi?")) {
+            localStorage.removeItem(STORAGE_KEY);
+            populateForm(DEFAULTS);
+            notify("Pengaturan berhasil dipulihkan ke default!");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

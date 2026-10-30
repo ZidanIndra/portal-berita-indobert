@@ -1,0 +1,13 @@
+{
+  "model_name": "indobenchmark/indobert-base-p1",
+  "max_length": 512,
+  "seed": 42,
+  "learning_rate": 2e-05,
+  "batch_size": 16,
+  "epochs_requested": 4,
+  "weight_decay": 0.01,
+  "selected_validation_fold": 4,
+  "best_checkpoint": "/content/results/checkpoints/R01_SINGLE_INDOBERT/checkpoint-92",
+  "input_mode": "title_content_pair",
+  "training_runs": 1
+}
